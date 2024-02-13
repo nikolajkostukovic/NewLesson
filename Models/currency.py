@@ -1,3 +1,6 @@
+import datetime
+import uuid
+
 from sqlalchemy import create_engine, Column, String, MetaData, UUID, Text, text, \
     DateTime, VARCHAR, Integer, Float
 from sqlalchemy.ext.declarative import declarative_base
@@ -8,7 +11,7 @@ engine = create_engine("postgresql://postgres:postgres@localhost:5432/Python_bot
 Base = declarative_base()
 metadata = MetaData()
 
-class Currency:
+class Currency(Base):
     __tablename__ = 'currency'
 
     id = Column(UUID(as_uuid=True), primary_key=True, server_default=text("uuid_generate_v4()"))
@@ -27,3 +30,5 @@ class Currency:
         self.name = name
         self.value = value
         self.vunitRate = vunitRate
+        self.id = uuid.uuid4()
+        self.date = datetime.datetime.now()

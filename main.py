@@ -1,4 +1,5 @@
 from Controllers import generalScript
+from Controllers import controllerBot
 
 class Main:
 
@@ -8,8 +9,22 @@ class Main:
     def startParserCurrency(self):
         script = generalScript.GeneralScript();
         script.startScript()
+        bot = controllerBot.ControllerBot()
+        bot.startBot()
 
 if "__main__" == __name__:
     mainClass = Main()
     mainClass.startParserCurrency()
+
+
+
+
+
+
+
+
+
+
+
+
 
